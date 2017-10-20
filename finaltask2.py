@@ -1,19 +1,20 @@
 from weather import weather
 weather = Weather()
-location = Location()
 
-lookup = weather.lookup(560743)
-condition = lookup.condition()
-print(condition['text']
-
-location = weather.lookuplocation('dublin')
-condition = location.condition()
+location = weather.lookup_by_location('Halifax')
+condition = location.condition('Halifax')
 print(condition['text'])
 
+forecast = location.forecast()
+hightemp=[]
+lowtemp=[]
+print("current weather is ", condition['text'])
+print("current temperature ",condition['temp'])
+print("weather for the next 5 days")
+for forecasts in location.forecast():
+        hightemp = forecasts['high']
+        lowtemp = forecasts['low']
+        rain= forecast['text']
+        if forecasts['text']== "Rain":
+                print ("the day it will rain is",forecasts['day'])
 
-forecasts = location.forecast()
-for forecast in forecasts:
-    print(forecasts.text())
-    print(forecasts.date())
-    print(forecasts.high())
-    print(forecasts.low())
